@@ -179,6 +179,40 @@ public class exercFolha4 {
 
     }
 
+    void exercicio8(Scanner sc) {
+        int cont0_25 = 0;
+        int cont26_50 = 0;
+        int cont51_75 = 0;
+        int cont76_100 = 0;
+
+        System.out.println("Digite números (negativo para sair):");
+
+        while (true) {
+            System.out.print("Número: ");
+            int valor = sc.nextInt();
+
+            if (valor < 0) {
+                break;
+            }
+
+            if (valor <= 25) {
+                cont0_25++;
+            } else if (valor <= 50) {
+                cont26_50++;
+            } else if (valor <= 75) {
+                cont51_75++;
+            } else if (valor <= 100) {
+                cont76_100++;
+            }
+        }
+
+        System.out.println("\nContagem por intervalo:");
+        System.out.println("[0-25]: " + cont0_25);
+        System.out.println("[26-50]: " + cont26_50);
+        System.out.println("[51-75]: " + cont51_75);
+        System.out.println("[76-100]: " + cont76_100);
+    }
+
     // Método principal
     public static void main(String[] args) {
 
@@ -199,6 +233,7 @@ public class exercFolha4 {
         clear(sc);
         exerc.exercicio7(sc);
         clear(sc);
+        exerc.exercicio8(sc);
 
         sc.close();
     }
