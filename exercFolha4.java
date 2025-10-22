@@ -166,6 +166,19 @@ public class exercFolha4 {
         }
     }
 
+    void exercicio7(Scanner sc) {
+        // Elaborar um programa que apresente todos os valores numéricos inteiros
+        // ímpares
+        // situados no intervalo de 0 a 20.
+        for (int i = 0; i <= 20; i++) {
+            if (i % 2 != 0) {
+                System.out.println(i);
+            }
+
+        }
+
+    }
+
     // Método principal
     public static void main(String[] args) {
 
@@ -183,6 +196,8 @@ public class exercFolha4 {
         exerc.exercicio5();
         clear(sc);
         exerc.exercicio6(sc);
+        clear(sc);
+        exerc.exercicio7(sc);
         clear(sc);
 
         sc.close();
