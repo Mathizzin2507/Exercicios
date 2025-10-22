@@ -1,10 +1,31 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class exercFolha4 {
 
-    // Exercício 1: Ler 10 números e calcular soma e média
+    public static void clear(Scanner sc) {
+
+        System.out.println("\nPressione Enter para continuar...");
+
+        if (sc.hasNextLine())
+            sc.nextLine();
+
+        sc.nextLine();
+
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao limpar a tela: " + e.getMessage());
+        }
+    }
+
     public void exercicio1(Scanner sc) {
         double soma = 0;
         double media = 0;
@@ -74,36 +95,80 @@ public class exercFolha4 {
             return;
         }
         for (int i = 1; i <= 10; i++) {
-            int resultado = numero * i;
+            float resultado = numero * i;
             System.out.println(numero + " x " + i + " = " + resultado);
         }
 
     }
 
-    public static void clear(Scanner sc) {
+    void exercicio4(Scanner sc) {
 
-        System.out.println("\nPressione Enter para continuar...");
-
-        if (sc.hasNextLine())
-            sc.nextLine();
-
-        sc.nextLine();
-
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
+        System.out.println("Exercício 4: Média Aritmética de Números Pares de 1 a 100");
+        int soma = 0;
+        int contador = 0;
+        for (int i = 1; i <= 100; i++) {
+            if (i % 2 == 0) { // verifica se o número é par
+                soma += i;
+                contador++;
             }
-        } catch (Exception e) {
-            System.out.println("Erro ao limpar a tela: " + e.getMessage());
+        }
+        double media = (double) soma / contador;
+        System.out.println("A média aritmética dos números pares de 1 a 100 é: " + media);
+    }
+
+    void exercicio5() {
+        ArrayList<Integer> numerosDivisiveisPor4 = new ArrayList<>();
+        // Preenchendo a lista
+        for (int i = 1; i <= 100; i++) {
+            if (i % 4 == 0) {
+                numerosDivisiveisPor4.add(i);
+            }
+        }
+        // Imprimindo a lista inteira
+        System.out.println(numerosDivisiveisPor4);
+    }
+
+    void exercicio6(Scanner sc) {
+        double soma = 0;
+        int quantidade = 0;
+        double maior = Double.MIN_VALUE;
+        double menor = Double.MAX_VALUE;
+
+        System.out.println("Digite números positivos (digite um número negativo para sair):");
+
+        while (true) {
+            System.out.print("Número: ");
+            double valor = sc.nextDouble();
+
+            if (valor < 0) {
+                break; // encerra o loop se o valor for negativo
+            }
+
+            soma += valor;
+            quantidade++;
+
+            if (valor > maior) {
+                maior = valor;
+            }
+            if (valor < menor) {
+                menor = valor;
+            }
+        }
+
+        if (quantidade > 0) {
+            double media = soma / quantidade;
+            System.out.println("\nQuantidade de números lidos: " + quantidade);
+            System.out.println("Média: " + media);
+            System.out.println("Maior número: " + maior);
+            System.out.println("Menor número: " + menor);
+        } else {
+            System.out.println("Nenhum número positivo foi informado.");
         }
     }
 
     // Método principal
     public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
         exercFolha4 exerc = new exercFolha4();
 
@@ -112,6 +177,12 @@ public class exercFolha4 {
         exerc.exercicio2(sc);
         clear(sc);
         exerc.exercicio3(sc);
+        clear(sc);
+        exerc.exercicio4(sc);
+        clear(sc);
+        exerc.exercicio5();
+        clear(sc);
+        exerc.exercicio6(sc);
         clear(sc);
 
         sc.close();
