@@ -213,29 +213,74 @@ public class exercFolha4 {
         System.out.println("[76-100]: " + cont76_100);
     }
 
-    // Método principal
+    void exercicio9(Scanner sc) {
+        // Leia dois números (a e b) do teclado, tal que a < b, e imprima a tabuada de
+        // cada um
+        // desses números. Exemplo: se forem lidos os números 3 e 5, apresentar a
+        // tabuada do 3, do
+        // 4 e do 5 (cada uma de 1 a 10).
+        System.out.print("Digite o valor de a (deve ser menor que b): ");
+        int a = sc.nextInt();
+        System.out.print("Digite o valor de b (deve ser maior que a): ");
+        int b = sc.nextInt();
+
+        if (a >= b) {
+            System.out.println("Valor inválido! Certifique-se de que a < b.");
+            return;
+        }
+        for (int num = a; num <= b; num++) {
+            System.out.println("Tabuada de " + num + ":");
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(num + " x " + i + " = " + (num * i));
+            }
+            System.out.println();
+        }
+    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         exercFolha4 exerc = new exercFolha4();
+        int opcao = 0;
 
-        exerc.exercicio1(sc);
-        clear(sc);
-        exerc.exercicio2(sc);
-        clear(sc);
-        exerc.exercicio3(sc);
-        clear(sc);
-        exerc.exercicio4(sc);
-        clear(sc);
-        exerc.exercicio5();
-        clear(sc);
-        exerc.exercicio6(sc);
-        clear(sc);
-        exerc.exercicio7(sc);
-        clear(sc);
-        exerc.exercicio8(sc);
+        while (true) {
+            System.out.println("\n===== Exercícios da Folha 4 =====");
+            System.out.println("1 - Exercício 1");
+            System.out.println("2 - Exercício 2");
+            System.out.println("3 - Exercício 3");
+            System.out.println("4 - Exercício 4");
+            System.out.println("5 - Exercício 5");
+            System.out.println("6 - Exercício 6");
+            System.out.println("7 - Exercício 7");
+            System.out.println("8 - Exercício 8");
+            System.out.println("9 - Exercício 9");
+            System.out.println("10 - Sair");
+            System.out.print("Escolha uma opção: ");
 
-        sc.close();
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1 -> exerc.exercicio1(sc);
+                case 2 -> exerc.exercicio2(sc);
+                case 3 -> exerc.exercicio3(sc);
+                case 4 -> exerc.exercicio4(sc);
+                case 5 -> exerc.exercicio5();
+                case 6 -> exerc.exercicio6(sc);
+                case 7 -> exerc.exercicio7(sc);
+                case 8 -> exerc.exercicio8(sc);
+                case 9 -> exerc.exercicio9(sc);
+                case 10 -> {
+                    System.out.println("Encerrando programa...");
+                    sc.close();
+                    return;
+                }
+                default -> System.out.println("Opção inválida! Tente novamente.");
+            }
+
+            System.out.println("\nPressione ENTER para continuar...");
+            sc.nextLine(); // consome o \n
+            sc.nextLine(); // espera o enter
+        }
+
     }
 
 }
