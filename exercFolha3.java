@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercFolha1 {
+public class exercFolha3 {
 
     public static void main(String[] args) {
 
@@ -8,7 +8,7 @@ public class exercFolha1 {
 
         // Elabore um algoritmo que leia dois números e imprima qual é maior, qual é
         // menor, ou se são iguais.
-        exercFolha1 exerc = new exercFolha1();
+        exercFolha3 exerc = new exercFolha3();
         exerc.UmcompareNumbers(scanner, scanner);
 
         // Efetuar a leitura de um valor numérico inteiro positivo ou negativo
