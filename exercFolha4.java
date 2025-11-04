@@ -26,7 +26,7 @@ public class exercFolha4 {
         }
     }
 
-    public void exercicio1(Scanner sc) {
+    void exercicio1(Scanner sc) {
         double soma = 0;
         double media = 0;
 
@@ -60,7 +60,7 @@ public class exercFolha4 {
     }
 
     // Exercício 2: Crescimento de Chaves e Quico
-    public void exercicio2(Scanner sc) {
+    void exercicio2(Scanner sc) {
         System.out.println("Exercício 2: Crescimento de Chaves e Quico");
 
         BigDecimal quico = new BigDecimal("1.40");
@@ -236,6 +236,7 @@ public class exercFolha4 {
             System.out.println();
         }
     }
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
